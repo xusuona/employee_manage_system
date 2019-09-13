@@ -5,6 +5,36 @@ public class Employee {
     private String empName;
     private String empEmail;
     private char empGender;
+    private int departmentId;
+    private Department department;
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "empId=" + empId +
+                ", empName='" + empName + '\'' +
+                ", empEmail='" + empEmail + '\'' +
+                ", empGender=" + empGender +
+                ", departmentId=" + departmentId +
+                ", department=" + department +
+                '}';
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    public int getDepartmentId() {
+        return departmentId;
+    }
+
+    public void setDepartmentId(int departmentId) {
+        this.departmentId = departmentId;
+    }
 
     public int getEmpId() {
         return empId;
@@ -38,13 +68,4 @@ public class Employee {
         this.empGender = empGender;
     }
 
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "empId=" + empId +
-                ", empName='" + empName + '\'' +
-                ", empEmail='" + empEmail + '\'' +
-                ", empGender=" + empGender +
-                '}';
-    }
 }

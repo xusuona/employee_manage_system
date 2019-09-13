@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xusuona.mapper.EmployeeMapper">
+    <resultMap id="departmentResultMap" type="Department">
+        <id property="depId" column="dep_id"/>
+        <result property="depName" column="dep_name"/>
+        <result property="depLeader" column="dep_leader"/>
+    </resultMap>
+    <resultMap id="employeeResultMap" type="Employee">
+        <id property="empId" column="emp_id"/>
+        <result property="empName" column="emp_name"/>
+        <result property="empEmail" column="emp_email"/>
+        <result property="empGender" column="emp_gender"/>
+        <result property="departmentId" column="department_id"/>
+        <association property="department" resultMap="departmentResultMap"/>
+    </resultMap>
+    
+    <delete id="deleteOneById" parameterType="int">
+        delete from employee where emp_id = #{empId}
+    </delete>
+
+    <update id="updateOne" parameterType="Employee">
+        update employee set emp_name=#{employee.empName},emp_email=#{employee.empEmail},
+               emp_gender=#{employee.empGender},department_id=#{employee.departmentId}
+    </update>
+
+    <select id="selectOneById" parameterType="int" resultType="Employee" resultMap="employeeResultMap">
+        select * from employee where emp_id=#{empId}
+    </select>
+
+    <select id="selectOneByName" parameterType="String" resultType="Employee" resultMap="employeeResultMap">
+        select * from employee where emp_name=#{empName}
+    </select>
+
+    <select id="selectEmptWithDeptById" parameterType="int" resultType="Employee" resultMap="employeeResultMap">
+        select * from employee e, department d where e.department_id=d.dep_id and e.emp_id=#{empId}
+    </select>
+
+    <select id="selectEmptByLimitAndOffset" resultMap="employeeResultMap">
+        select * from employee e left join department d
+        on e.department_id=d.dep_id order by e.emp_id limit #{offset}, #{limit}
+    </select>
+</mapper>
