@@ -13,5 +13,5 @@
     </context:component-scan>
 
     <!-- 导入mybatis配置 -->
-    <import resource="classpath:mybatis-config.xml"/>
+    <import resource="mybatis-config.xml"/>
 </beans>

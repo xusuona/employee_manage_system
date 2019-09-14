@@ -19,6 +19,12 @@ public interface EmployeeMapper {
     void updateOne(@Param("employee") Employee employee);
 
     /**
+     * 插入新员工
+     * @param employee
+     */
+    void insertOne(@Param("employee") Employee employee);
+
+    /**
      * 通过ID查找员工
      * @param empId
      * @return Employee
@@ -30,22 +36,23 @@ public interface EmployeeMapper {
      * @param empName
      * @return Employee
      */
-    Employee selectOneByName(@Param("empName") String empName);
+    List<Employee> selectOneByName(@Param("empName") String empName);
 
     /**
      * 通过Id查找带有部门信息的员工
      * @param empId
      * @return
      */
-    List<Employee> selectEmptWithDeptById(@Param("empId") int empId);
+    Employee selectEmptWithDeptById(@Param("empId") int empId);
 
     /**
      * 通过分页限制返回员工列表
-     * @param limit
-     * @param offset
+     * @param limit 记录行的最大数目
+     * @param offset 记录行的偏移量
+     * 例：select * from table limit 5,10; 则返回记录行6-15
      * @return
      */
     List<Employee> selectEmptByLimitAndOffset(@Param("limit") int limit, @Param("offset") int offset);
 
-
+    int countEmpNum();
 }

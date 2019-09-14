@@ -15,7 +15,11 @@
         <result property="departmentId" column="department_id"/>
         <association property="department" resultMap="departmentResultMap"/>
     </resultMap>
-    
+
+    <insert id="insertOne" parameterType="Employee">
+        insert into employee(emp_id,emp_name,emp_email,emp_gender,department_id)
+        values(#{employee.empId},#{employee.empName},#{employee.empEmail},#{employee.empGender},#{employee.departmentId})
+    </insert>
     <delete id="deleteOneById" parameterType="int">
         delete from employee where emp_id = #{empId}
     </delete>
@@ -38,7 +42,10 @@
     </select>
 
     <select id="selectEmptByLimitAndOffset" resultMap="employeeResultMap">
-        select * from employee e left join department d
-        on e.department_id=d.dep_id order by e.emp_id limit #{offset}, #{limit}
+        select * from employee order by emp_id limit #{offset}, #{limit}
+    </select>
+
+    <select id="countEmpNum" resultType="int">
+        select count(*) from employee
     </select>
 </mapper>

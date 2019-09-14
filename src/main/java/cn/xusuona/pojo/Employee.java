@@ -1,5 +1,8 @@
 package cn.xusuona.pojo;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class Employee {
     private int empId;
     private String empName;
@@ -19,6 +22,7 @@ public class Employee {
                 ", department=" + department +
                 '}';
     }
+
 
     public Department getDepartment() {
         return department;
