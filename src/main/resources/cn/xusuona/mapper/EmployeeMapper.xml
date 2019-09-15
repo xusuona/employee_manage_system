@@ -27,6 +27,7 @@
     <update id="updateOne" parameterType="Employee">
         update employee set emp_name=#{employee.empName},emp_email=#{employee.empEmail},
                emp_gender=#{employee.empGender},department_id=#{employee.departmentId}
+               where emp_name=#{employee.empName}
     </update>
 
     <select id="selectOneById" parameterType="int" resultType="Employee" resultMap="employeeResultMap">
