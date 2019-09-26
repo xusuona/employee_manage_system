@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xusuona.mapper.DepartmentMapper">
+    <resultMap id="departmentResultMap" type="Department">
+        <id property="depId" column="dep_id"/>
+        <result property="depName" column="dep_name"/>
+        <result property="depLeader" column="dep_leader"/>
+    </resultMap>
+    <resultMap id="employeeResultMap" type="Employee">
+        <id property="empId" column="emp_id"/>
+        <result property="empName" column="emp_name"/>
+        <result property="empEmail" column="emp_email"/>
+        <result property="empGender" column="emp_gender"/>
+        <result property="departmentId" column="department_id"/>
+        <association property="department" resultMap="departmentResultMap"/>
+    </resultMap>
+
+    <insert id="insertOne" parameterType="Department" >
+        insert into department(dep_name,dep_leader) values(#{department.depName},#{department.depLeader});
+    </insert>
+
+    <update id="updateOne" parameterType="Department">
+        update department set dep_name=#{department.depName},dep_leader=#{department.depLeader} where dep_id=#
+    </update>
+
+    <select id="selectOneById" parameterType="int" resultMap="departmentResultMap">
+        select * from department where dep_id=#{depId}
+    </select>
+
+    <select id="selectOneByName" parameterType="String" resultMap="departmentResultMap">
+        select * from department where dep_name=#{depName}
+    </select>
+
+    <delete id="deleteOne" parameterType="int">
+        delete from department where dep_id=#{depId}
+    </delete>
+
+    <select id="selectEmpInSelectedDep" parameterType="String" resultMap="employeeResultMap">
+        select * from employee where department_id=
+        (select dep_id from department where dep_name=#{depName})
+    </select>
+
+    <select id="selectDepByLimitAndOffset" resultMap="departmentResultMap">
+        select * from department order by dep_id limit #{offset}, #{limit}
+    </select>
+</mapper>
