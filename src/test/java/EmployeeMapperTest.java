@@ -52,7 +52,7 @@ public class EmployeeMapperTest {
     @Test
     public void testSelectEmptByLimitAndOffset()
     {
-        List<Employee> employeeList = employeeMapper.selectEmptByLimitAndOffset(1,0);
+        List<Employee> employeeList = employeeMapper.getEmptByLimitAndOffset(1,0);
         System.out.println(employeeList.size());
         for(Employee emp : employeeList)
         {

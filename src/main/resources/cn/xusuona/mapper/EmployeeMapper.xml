@@ -42,7 +42,7 @@
         select * from employee e, department d where e.department_id=d.dep_id and e.emp_id=#{empId}
     </select>
 
-    <select id="selectEmptByLimitAndOffset" resultMap="employeeResultMap">
+    <select id="getEmptByLimitAndOffset" resultMap="employeeResultMap">
         select * from employee order by emp_id limit #{offset}, #{limit}
     </select>
 

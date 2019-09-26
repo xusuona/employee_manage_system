@@ -42,8 +42,8 @@
                                 <td>${emp.empId}</td>
                                 <td>${emp.empName}</td>
                                 <td>${emp.empEmail}</td>
-                                <td>${emp.empGender == "F"? "女": "男"}</td>
-                                <td>${emp.department.deptName}</td>
+                                <td>${emp.empGender}</td>
+                                <td>${emp.department.depName}</td>
                                 <td>
                                     <a href="#" role="button" class="btn btn-primary emp_edit_btn" data-toggle="modal" data-target=".emp-update-modal">编辑</a>
                                     <a href="#" role="button" class="btn btn-danger emp_delete_btn">删除</a>

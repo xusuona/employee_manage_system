@@ -52,7 +52,7 @@ public interface EmployeeMapper {
      * 例：select * from table limit 5,10; 则返回记录行6-15
      * @return
      */
-    List<Employee> selectEmptByLimitAndOffset(@Param("limit") int limit, @Param("offset") int offset);
+    List<Employee> getEmptByLimitAndOffset(@Param("offset") int offset, @Param("limit") int limit );
 
     int countEmpNum();
 }

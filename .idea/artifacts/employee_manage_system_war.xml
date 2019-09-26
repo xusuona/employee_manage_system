@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="employee_manage_system:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>employee_manage_system</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="employee_manage_system-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="employee_manage_system:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -21,7 +21,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     public List<Employee> getEmptByLimitAndOffset(int offset, int limit) {
-        return employeeMapper.selectEmptByLimitAndOffset(offset, limit);
+        return employeeMapper.getEmptByLimitAndOffset(offset, limit);
     }
 
     public Employee getEmptWithDeptById(int empId) {

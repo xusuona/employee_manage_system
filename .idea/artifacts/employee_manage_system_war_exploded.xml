@@ -1,8 +1,14 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="employee_manage_system:war exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/employee_manage_system_war_exploded</output-path>
+    <output-path>$PROJECT_DIR$/target/employee_manage_system-1.0-SNAPSHOT</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>employee_manage_system</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
     <root id="root">
-      <element id="javaee-facet-resources" facet="employee_manage_system/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="employee_manage_system" />
@@ -19,7 +25,8 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:4.2.9.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.2.9.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.2.9.RELEASE" />
-          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:3.1.14" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.17" />
+          <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.6.1" />
           <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.4.1" />
           <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:1.3.1" />
           <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
@@ -30,10 +37,12 @@
           <element id="library" level="project" name="Maven: junit:junit:4.12" />
           <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:1.3" />
           <element id="library" level="project" name="Maven: org.springframework:spring-test:4.2.9.RELEASE" />
-          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.17" />
-          <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.6.1" />
         </element>
       </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/employee_manage_system-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="employee_manage_system/web/Web" />
     </root>
   </artifact>
 </component>
